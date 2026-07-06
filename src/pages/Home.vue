@@ -57,7 +57,7 @@
 
         <div class="hero-right">
           <!-- Asegúrate de tener esta imagen o usa un placeholder real -->
-          <img src="../assets/Logo_GDLM.png" alt="Gota de Leche Ilustración">
+          <img src="../assets/Logo_GDLM.png" alt="Gota de Leche Ilustración" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
@@ -405,11 +405,13 @@ onUnmounted(() => {
   border-radius: 50%;
   opacity: 0.35;
   animation: float-blob 10s ease-in-out infinite alternate;
+  will-change: transform;
 }
 .blob-1 {
   top: -10%; left: -5%;
   width: 350px; height: 350px;
   background: var(--secondary-color);
+  will-change: transform;
 }
 
 @keyframes float-blob {
@@ -439,6 +441,7 @@ onUnmounted(() => {
   height: 100%;
   animation: spin-badge 16s linear infinite;
   transform-origin: center center;
+  will-change: transform;
 }
 
 .badge-bg {

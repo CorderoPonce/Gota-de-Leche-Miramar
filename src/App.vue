@@ -254,6 +254,7 @@ onMounted(() => {
     duration: 1.2, // Tiempo que tarda en frenar (mismo del prototipo)
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Curva de freno sedosa
     smoothWheel: true,
+    smoothTouch: false
   })
 
   function raf(time) {

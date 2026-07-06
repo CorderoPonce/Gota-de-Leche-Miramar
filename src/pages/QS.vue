@@ -15,7 +15,7 @@
         
         <!-- Logo Gigante Decorativo -->
         <div class="qs-hero-logo">
-          <img src="../assets/Logo_GDLM.png" alt="Emblema Gigante Gota de Leche">
+          <img src="../assets/Logo_GDLM.png" alt="Emblema Gigante Gota de Leche" loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -215,6 +215,7 @@ onUnmounted(() => {
   max-width: 380px;
   filter: drop-shadow(0 25px 40px rgba(65, 53, 104, 0.15));
   animation: floatLogo 8s ease-in-out infinite alternate;
+  will-change: transform;
 }
 @keyframes floatLogo {
   0% { transform: translateY(0px) scale(1); }
@@ -389,6 +390,7 @@ onUnmounted(() => {
   transform: scale(0.9);
   opacity: 0.8;
   transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease;
+  will-change: transform;
 }
 .climax-wrapper.active .cta-card {
   transform: scale(1);
