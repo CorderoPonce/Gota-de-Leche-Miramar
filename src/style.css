@@ -1,0 +1,166 @@
+/* ================= VARIABLES GLOBALES Y PALETA DEL PROTOTIPO ================= */
+:root, .app-container {
+  --bg-main: #e9e2f4;
+  --bg-surface: #ffffff;
+  --bg-dots: rgba(90, 72, 117, 0.08); 
+  --text-main: #382b5c;
+  --text-muted: #51466e;
+  --border-color: rgba(90, 72, 117, 0.15); 
+  --primary-color: #413568;
+  --primary-hover: #2d244a;
+  --secondary-color: #3273b5;
+  --hero-wave: #ffffff; 
+  
+  --impact-gradient: linear-gradient(135deg, #413568, #a291d1);
+  --btn-impacto-bg: #ffffff;
+  --btn-impacto-text: #413568;
+  
+  --font-modifier: 1;
+}
+
+.font-level-1 { --font-modifier: 0.85; }
+.font-level-2 { --font-modifier: 1; }
+.font-level-3 { --font-modifier: 1.25; }
+
+/* ================= MODO ALTO CONTRASTE (VARIABLES MAESTRAS) ================= */
+.high-contrast {
+  --bg-main: #000000;
+  --bg-surface: #000000;
+  --bg-dots: rgba(255, 255, 255, 0.05);
+  --text-main: #ffffff;
+  --text-muted: #ffff00;
+  --border-color: #ffffff;
+  --primary-color: #000000;
+  --primary-hover: #ffff00;
+  --secondary-color: #ffff00;
+  --hero-wave: #000000;
+  --impact-gradient: #000000;
+  --btn-impacto-bg: #000000;
+  --btn-impacto-text: #ffff00;
+}
+
+/* ================= ALTO CONTRASTE: OVERRIDES ESTRICTOS ================= */
+
+/* 1. Corrección del Header */
+.high-contrast .header.header-scrolled { background-color: #000000 !important; backdrop-filter: none !important; }
+
+/* 2. Textos, Párrafos y Portada */
+.high-contrast p, 
+.high-contrast .sec-desc,
+.high-contrast .impact-label,
+.high-contrast .story-quote,
+.high-contrast .author-location,
+.high-contrast .news-info p { 
+  color: #ffff00 !important; 
+}
+
+.high-contrast h1, 
+.high-contrast h2, 
+.high-contrast h3, 
+.high-contrast h4,
+.high-contrast .impact-number,
+.high-contrast .sec-title.text-white { 
+  color: #ffffff !important; 
+}
+
+.high-contrast .sec-tag, .high-contrast .quote-icon { color: #ffff00 !important; opacity: 1 !important; }
+
+/* 3. Todos los Botones Interactivos */
+.high-contrast .btn-donar,
+.high-contrast .btn-contacto,
+.high-contrast .btn-impacto,
+.high-contrast .btn-outline-primary {
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+  border: 2px solid #ffff00 !important;
+}
+
+.high-contrast .btn-donar:hover,
+.high-contrast .btn-contacto:hover,
+.high-contrast .btn-impacto:hover,
+.high-contrast .btn-outline-primary:hover {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+}
+
+/* 4. Tarjetas y Cajas */
+.high-contrast .bento-card, .high-contrast .story-card { background: #000000 !important; border: 2px solid #ffffff !important; }
+.high-contrast .srv-icon { background: #000000 !important; color: #ffff00 !important; border: 1px solid #ffff00 !important; }
+.high-contrast .img-placeholder, .high-contrast .story-image-placeholder { background-color: #000000 !important; color: #ffffff !important; border-bottom: 2px solid #ffffff !important; }
+
+/* 5. Efectos Hover en Tarjetas de Noticias e Historias */
+.high-contrast .news-item:hover .news-title, 
+.high-contrast .story-card:hover h4 { 
+  color: #ffff00 !important; 
+  text-decoration: underline; 
+}
+
+/* 6. Panel de Accesibilidad (Widget) */
+.high-contrast .acc-btn { background: #000000; color: #ffffff; border: 1px solid #ffffff; }
+.high-contrast .acc-btn:hover, .high-contrast .acc-btn:focus { background: #ffffff; color: #000000; outline: 2px solid #ffff00; }
+.high-contrast .btn-contrast { background: #ffff00; color: #000000; border: none !important; }
+
+
+/* ================= RESETS Y BASE ================= */
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* EL ARREGLO DEL FONDO LILA: Añadimos background-color al contenedor principal */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-main); /* Obliga a la página a adoptar el color de la variable */
+  background-image: radial-gradient(var(--bg-dots) 1.8px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ================= COMPONENTE: HEADER ================= */
+.header { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 5%; background-color: var(--bg-surface); border-bottom: 1px solid var(--border-color); box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: background-color 0.4s ease, border-color 0.4s ease; }
+.logo h2 { color: var(--text-main); font-size: calc(1.8rem * var(--font-modifier)); }
+.logo-link { text-decoration: none; color: inherit; display: inline-block; }
+.logo-link:hover { opacity: 0.9; }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: calc(1.1rem * var(--font-modifier)); transition: color 0.3s; }
+.nav-links a:hover { color: var(--primary-color); }
+.header-actions { display: flex; align-items: center; gap: 1.5rem; }
+
+/* ================= COMPONENTE: BOTONES ================= */
+.icon-btn { background: none; border: none; font-size: calc(1.4rem * var(--font-modifier)); cursor: pointer; color: var(--text-main); }
+.btn { padding: 0.8rem 1.8rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: calc(1rem * var(--font-modifier)); display: inline-block; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.btn:hover { transform: scale(1.02); }
+
+/* Arreglo: Usamos colores neutros que se sobreescribirán fácilmente en alto contraste */
+.btn-donar { background-color: var(--primary-color); color: #ffffff; border: none; }
+.btn-donar:hover { box-shadow: 0 8px 20px rgba(65, 53, 104, 0.15); color: #ffffff;}
+.btn-contacto { background-color: transparent; color: var(--primary-color); border: 1.5px solid var(--primary-color); }
+.btn-contacto:hover { background-color: rgba(65, 53, 104, 0.05); }
+
+/* ================= COMPONENTE: TARJETAS ================= */
+.action-card { border-radius: 12px; text-decoration: none; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+.action-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.outline-card { border: 2px solid var(--secondary-color); color: var(--text-main); background-color: var(--bg-surface); }
+.solid-card { background-color: var(--primary-color); color: var(--bg-surface); }
+
+.news-item { background: var(--bg-surface); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--border-color); transition: transform 0.3s, border-color 0.3s; }
+.news-item:hover { transform: translateY(-5px); }
+.img-placeholder { background-color: var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-weight: bold; }
+
+/* ================= COMPONENTE: FOOTER ================= */
+.footer { background-color: #1a202c; color: #cbd5e0; padding: 4rem 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: auto; }
+.footer-column h4 { color: white; margin-bottom: 1.5rem; font-size: calc(1.2rem * var(--font-modifier)); }
+.footer-column p, .footer-column a { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; font-size: calc(1rem * var(--font-modifier)); }
+.footer-column p svg, .footer-column a svg { flex-shrink: 0; color: #cbd5e0; transition: color 0.3s ease, transform 0.3s ease; }
+.footer-column a { color: #cbd5e0; text-decoration: none; transition: color 0.3s ease; }
+.footer-column a:hover, .footer-column a:focus { color: var(--secondary-color); }
+.footer-column a:hover svg, .footer-column a:focus svg { color: var(--secondary-color); transform: scale(1.1); }
