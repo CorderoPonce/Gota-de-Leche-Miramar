@@ -176,9 +176,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import Lenis from 'lenis'
 
+const route = useRoute()
 const isLoading = ref(true)
 // Estados de Accesibilidad
 const isWidgetOpen = ref(false)
@@ -233,6 +235,16 @@ const updateFooterMargin = () => {
 }
 
 let lenis
+
+watch(() => route.path, () => {
+  if (lenis) {
+    // Le ordena a Lenis volver al pixel 0 de forma instantánea (sin animación)
+    lenis.scrollTo(0, { immediate: true })
+  } else {
+    // Respaldo nativo por seguridad
+    window.scrollTo(0, 0)
+  }
+})
 
 onMounted(() => {
   // Apaga el preloader después de 1.5s
