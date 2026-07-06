@@ -27,6 +27,9 @@ jobs:
       - name: Construir proyecto (Build)
         run: npm run build
 
+      - name: Verificar archivos construidos
+        run: ls -la dist
+
       - name: Subir artefacto (dist)
         uses: actions/upload-pages-artifact@v3
         with:
