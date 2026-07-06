@@ -9,7 +9,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/Gota-de-Leche-Miramar/'), 
   routes
 })
 
