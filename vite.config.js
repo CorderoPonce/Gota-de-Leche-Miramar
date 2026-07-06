@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/Gota-de-Leche-Miramar/',
   plugins: [vue()],
   server: {
     allowedHosts: true 
