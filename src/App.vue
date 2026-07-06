@@ -69,7 +69,7 @@
       <RouterLink to="/" class="logo-link">
       <div class="logo">
           <img src="./assets/Logo_GDLM.png" alt="Logo oficial de la ONG Nombre" class="logo-img">
-          <h2>ONG Nombre</h2>
+          <h2>Gota de Leche Miramar</h2>
       </div>
       </RouterLink>
 
