@@ -27,6 +27,9 @@ jobs:
       - name: Construir proyecto (Build)
         run: npm run build
 
+      - name: Copiar index.html a 404.html
+        run: cp dist/index.html dist/404.html
+
       - name: Verificar archivos construidos
         run: ls -la dist
 
