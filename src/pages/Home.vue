@@ -635,13 +635,13 @@ onUnmounted(() => {
 }
 
 .srv-icon {
-  width: 75px; height: 75px; /* Íconos un 15% más grandes */
+  width: 75px; height: 75px;
   border-radius: 20px; 
   flex-shrink: 0;
   background: rgba(50, 115, 181, 0.1); 
   color: var(--secondary-color);
   display: flex; align-items: center; justify-content: center;
-  font-size: 2rem; /* Tamaño de ícono más grande */
+  font-size: 2rem;
   margin-bottom: 1.5rem; 
   transition: background 0.6s ease, color 0.6s ease;
 }
@@ -690,6 +690,7 @@ onUnmounted(() => {
 .stories-section {
   padding: 2rem 5%;
   margin-bottom: 5rem;
+  position: relative;
 }
 
 .stories-header {
@@ -884,17 +885,35 @@ onUnmounted(() => {
 @media (max-width: 992px) {
   .content-inner { grid-template-columns: 1fr; gap: 4rem; }
   .about-sidebar { position: static; text-align: center; }
+  .hero-container { flex-direction: column; text-align: center; gap: 1rem; padding-top: 2rem;} 
+  .hero-left { flex: 0 0 100%; max-width: 100%; padding-bottom: 0; }
+  .hero-right { flex: 0 0 100%; max-width: 100%; padding-bottom: 2rem; }
+  .hero-left p { margin: 0 auto 2.5rem auto; }
+  .hero-btns { justify-content: center; margin-bottom: 0; }
+  .hero-right img { max-width: 90%; margin: 0 0 0 0; }
+  .hero-svg-bg { display: none; }
 }
 
 @media (max-width: 768px) {
   .main-action-buttons { grid-template-columns: 1fr; }
   .slider-placeholder { padding: 4rem 2rem; min-height: 350px; }
   .slide-content h2 { font-size: 2rem; }
+  .news-slider-container { padding: 0 15px; }
   .news-item { flex: 0 0 100%; }
-  .nav-arrow { display: none; }
+  .nav-arrow { display: flex; width: 45px; height: 45px; font-size: 1.2rem; }
+  .left-arrow { left: -5px; } 
+  .right-arrow { right: -5px; }
   .stories-grid { grid-template-columns: 1fr; }
   .srv-grid { grid-template-columns: 1fr; }
   .card-wide { grid-column: span 1; flex-direction: column; text-align: center; }
   .card-wide .srv-icon { margin: 0 auto 1.5rem; }
+  .hero-left h1 { font-size: calc(2.8rem * var(--font-modifier)); }
+  .hero-btns { flex-direction: column; gap: 1rem; }
+  .hero-btns .btn { width: 100%; }
+  .srv-grid { grid-template-columns: 1fr; } 
+  .card-wide { grid-column: span 1; display: block; text-align: left; padding: 3.5rem 3rem; }
+  .card-wide .srv-icon { margin: 0 0 1.5rem 0; }
+  .rotating-badge { width: 90px; height: 90px; top: -30px; right: auto; left: 50%; transform: translateX(-50%);}
+  .stories-header { padding-top: 3.5rem; }
 }
 </style>
