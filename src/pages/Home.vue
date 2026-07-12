@@ -205,7 +205,7 @@
         <!-- Tarjeta de Historia 1 con delay 1 -->
         <article class="story-card reveal delay-1" tabindex="0" @click="$router.push('/historias/1')" @keyup.enter="$router.push('/historias/1')">
           <div class="story-image-wrapper">
-            <div class="story-image-placeholder">Retrato 1</div>
+            <img src="../assets/H1.png" class="story-image-placeholder" loading="lazy" decoding="async">
           </div>
           <div class="story-content">
             <span class="quote-icon">“</span>
@@ -220,7 +220,7 @@
         <!-- Tarjeta de Historia 2 con delay 2 -->
         <article class="story-card reveal delay-2" tabindex="0" @click="$router.push('/historias/2')" @keyup.enter="$router.push('/historias/2')">
           <div class="story-image-wrapper">
-            <div class="story-image-placeholder">Retrato 2</div>
+            <img src="../assets/H2.png" class="story-image-placeholder" loading="lazy" decoding="async">
           </div>
           <div class="story-content">
             <span class="quote-icon">“</span>
@@ -259,7 +259,7 @@
               @click="$router.push('/noticias')"
               @keyup.enter="$router.push('/noticias')"
             >
-              <div class="img-placeholder" role="img" :aria-label="`Miniatura de la noticia: ${news.title}`">{{ news.img }}</div>
+              <img :src="news.img" :alt="`Miniatura de la noticia: ${news.title}`" class="news-image" />
               <div class="news-info">
                 <h4 class="news-title">{{ news.title }}</h4>
                 <p>{{ news.desc }}</p>
@@ -281,7 +281,11 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-
+import imgN1 from '../assets/N1.png'
+import imgN2 from '../assets/N2.png'
+import imgN3 from '../assets/N3.png'
+import imgN4 from '../assets/N4.png'
+import imgN5 from '../assets/N5.png'
 
   //================= ANIMACIÓN DE NÚMEROS (STATS) =================-->
   const statNinos = ref(0)
@@ -327,11 +331,11 @@ const pauseAutoPlay = () => { clearInterval(autoPlayInterval) }
 // Noticias y Desplazamiento
 const newsContainer = ref(null)
 const newsItems = ref([
-  { id: 1, title: 'Jornada de voluntariado', desc: 'Más de 40 asistentes este fin de semana...', img: 'Imagen Noticia 1' },
-  { id: 2, title: 'Alianza educativa', desc: 'Firmamos un nuevo convenio para potenciar el desarrollo...', img: 'Imagen Noticia 2' },
-  { id: 3, title: 'Balance anual 2025', desc: 'Revisa los hitos más importantes del año pasado...', img: 'Imagen Noticia 3' },
-  { id: 4, title: 'Talleres comunitarios', desc: 'Vecinos participan activamente en programas de alimentación...', img: 'Imagen Noticia 4' },
-  { id: 5, title: 'Entrega de suministros Cerro Barón', desc: 'Logramos abastecer a tres centros comunitarios periféricos...', img: 'Imagen Noticia 5' }
+  { id: 1, title: 'Jornada de voluntariado', desc: 'Más de 40 asistentes este fin de semana...', img: imgN1 },
+  { id: 2, title: 'Alianza educativa', desc: 'Firmamos un nuevo convenio para potenciar el desarrollo...', img: imgN2 },
+  { id: 3, title: 'Balance anual 2025', desc: 'Revisa los hitos más importantes del año pasado...', img: imgN3 },
+  { id: 4, title: 'Talleres comunitarios', desc: 'Vecinos participan activamente en programas de alimentación...', img: imgN4 },
+  { id: 5, title: 'Entrega de suministros Cerro Barón', desc: 'Logramos abastecer a tres centros comunitarios periféricos...', img: imgN5 }
 ])
 
 const scrollNews = (direction) => {
@@ -847,7 +851,7 @@ onUnmounted(() => {
 .news-slider-wrapper::-webkit-scrollbar { display: none; }
 .news-grid { display: flex; gap: 2.5rem; }
 .news-item { flex: 0 0 calc(33.333% - 1.666rem); scroll-snap-align: start; cursor: pointer; transition: all 0.3s ease; }
-.img-placeholder { height: 220px; font-size: calc(1.2rem * var(--font-modifier)); }
+.news-image { width: 100%; height: 300px; font-size: calc(1.2rem * var(--font-modifier)); }
 .news-info { padding: 2rem; }
 .news-info h4 { margin: 0 0 1rem 0; font-size: calc(1.3rem * var(--font-modifier)); line-height: 1.2; }
 .news-info p { line-height: 1.6; font-size: calc(1rem * var(--font-modifier)); }

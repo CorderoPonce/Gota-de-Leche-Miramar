@@ -41,9 +41,7 @@
         <div class="scrolling-gallery">
           
           <article class="gallery-item reveal delay-2">
-            <div class="photo-placeholder" role="img" aria-label="Fotografía de apoyo a la lactancia">
-              <span>Fotografía 1: Apoyo Profesional</span>
-            </div>
+            <img src="../assets/F1.png" class="photo-placeholder" loading="lazy" decoding="async">
             <div class="gallery-text">
               <h3>Acompañamiento Nutricional</h3>
               <p>Ofrecemos orientación personalizada con profesionales de la salud, asegurando que cada lactante reciba el desarrollo óptimo en su etapa más crítica.</p>
@@ -51,9 +49,7 @@
           </article>
 
           <article class="gallery-item reveal delay-1">
-            <div class="photo-placeholder" role="img" aria-label="Fotografía de visitas a domicilio">
-              <span>Fotografía 2: Visitas en Terreno</span>
-            </div>
+            <img src="../assets/F2.png" class="photo-placeholder" loading="lazy" decoding="async">
             <div class="gallery-text">
               <h3>Visitas Domiciliarias</h3>
               <p>Llevamos nuestra labor directamente a los hogares, brindando apoyo logístico, entregando suministros y evaluando el entorno familiar para una ayuda más precisa.</p>
@@ -61,9 +57,7 @@
           </article>
 
           <article class="gallery-item reveal delay-1">
-            <div class="photo-placeholder" role="img" aria-label="Fotografía de comunidad de madres">
-              <span>Fotografía 3: Comunidad y Talleres</span>
-            </div>
+            <img src="../assets/F3.png" class="photo-placeholder" loading="lazy" decoding="async">
             <div class="gallery-text">
               <h3>Red de Madres y Educación</h3>
               <p>Facilitamos espacios de encuentro seguros y talleres de puericultura, donde las familias comparten experiencias y fortalecen sus herramientas de crianza respetuosa.</p>
