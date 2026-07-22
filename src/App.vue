@@ -238,21 +238,18 @@ let lenis
 
 watch(() => route.path, () => {
   if (lenis) {
-    // Le ordena a Lenis volver al pixel 0 de forma instantánea (sin animación)
     lenis.scrollTo(0, { immediate: true })
   } else {
-    // Respaldo nativo por seguridad
     window.scrollTo(0, 0)
   }
 })
 
 onMounted(() => {
-  // Apaga el preloader después de 1.5s
   setTimeout(() => { isLoading.value = false }, 1500)
 
   lenis = new Lenis({
-    duration: 1.2, // Tiempo que tarda en frenar (mismo del prototipo)
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Curva de freno sedosa
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true,
     smoothTouch: false
   })
@@ -309,25 +306,21 @@ onUnmounted(() => {
 .section-label { font-size: calc(0.9rem * var(--font-modifier)); font-weight: 600; color: var(--text-main); }
 .acc-group { display: flex; gap: 0.5rem; }
 .acc-btn { flex: 1; background: #f1f5f9; color: #1a202c; border: 1px solid #cbd5e1; padding: 0.5rem; cursor: pointer; font-weight: bold; border-radius: 6px; font-size: 0.9rem; }
-
-/* Enlace invisible para navegación por teclado */
 .skip-link { position: absolute; top: -100px; left: 1rem; background: #27ae60; color: white; padding: 1rem; z-index: 9999; font-weight: bold; text-decoration: none; border-radius: 0 0 5px 5px; transition: top 0.2s ease; }
 .skip-link:focus { top: 0; }
 
-/* ================= HEADER GLOBAL CON INTEGRACIÓN AL SCROLL ================= */
-.header { 
-  position: sticky; 
-  top: 0; 
-  z-index: 1000; 
-  background-color: var(--bg-surface); 
-  padding: 1.2rem 5%; /* Padding inicial amplio: el header se ve imponente y fusionado */
-  
-  /* Transición suave multitarea que ahora incluye al padding para cambiar de forma */
+/* ================= HEADER GLOBAL ================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--bg-surface);
+  padding: 1.2rem 5%;
   transition: padding 0.3s ease, background-color 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease; 
   border-bottom: 1px solid transparent; 
 }
 
-/* Estado activo cuando el usuario baja (Efecto de encogimiento y flotación restaurado) */
+/* Efecto de encogimiento y flotación */
 .header.header-scrolled { 
   padding: 1.2rem 5%; 
   background-color: rgba(255, 255, 255, 1);
@@ -336,13 +329,6 @@ onUnmounted(() => {
   border-bottom: 1px solid var(--border-color); 
 }
 
-/* Desactiva transparencias en alto contraste para mantener legibilidad estricta 
-.high-contrast .header.header-scrolled {
-  background-color: #000000;
-  backdrop-filter: none;
-} /*
-
-/* Identidad Visual y Animación del Logo */
 .logo { 
   display: flex; 
   align-items: center; 
@@ -354,11 +340,9 @@ onUnmounted(() => {
   height: 60px; 
   object-fit: contain; 
   display: block; 
-  /* Transición para que el logo acompañe el cambio de forma del header */
   transition: width 0.3s ease, height 0.3s ease; 
 }
 
-/* El logo también se adapta de forma sutil cuando el header se compacta */
 .header.header-scrolled .logo-img {
   width: 45px;
   height: 45px;
@@ -371,7 +355,6 @@ onUnmounted(() => {
   transition: font-size 0.3s ease;
 }
 
-/* Los títulos del menú también pueden acompañar la reducción de tamaño si lo deseas */
 .header.header-scrolled .logo h2 {
   font-size: calc(1.6rem * var(--font-modifier));
 }
@@ -391,13 +374,13 @@ onUnmounted(() => {
 
 /* ================= FOOTER GLOBAL ================= */
 .footer { 
-  background-color: #1a202c; 
-  color: #cbd5e0; 
-  padding: 4rem 5%; 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 3rem; 
-  margin-top: auto; /* Asegura que el footer se vaya al fondo si la página es corta */
+  background-color: #1a202c;
+  color: #cbd5e0;
+  padding: 4rem 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-top: auto;
 }
 .footer-column h4 { color: white; margin-bottom: 1.5rem; font-size: calc(1.2rem * var(--font-modifier)); }
 .footer-column p, .footer-column a { margin-bottom: 1rem; font-size: calc(1rem * var(--font-modifier)); }

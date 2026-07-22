@@ -1,7 +1,7 @@
 <template>
   <main id="main-content" class="body-content qs-page" tabindex="-1">
     
-    <!-- ================= PORTADA: QUIÉNES SOMOS ================= -->
+    <!-- ================= PORTADA ================= -->
     <section class="qs-hero reveal">
       <div class="qs-hero-container">
         <!-- Textos -->
@@ -13,13 +13,13 @@
           </p>
         </div>
         
-        <!-- Logo Gigante Decorativo -->
+        <!-- Logo -->
         <div class="qs-hero-logo">
           <img src="../assets/Logo_GDLM.png" alt="Emblema Gigante Gota de Leche" loading="lazy" decoding="async">
         </div>
       </div>
 
-      <!-- Decoración: Ola separadora que conecta con la siguiente sección -->
+      <!-- Ola separadora -->
       <div class="qs-hero-wave">
         <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
           <path fill="var(--bg-surface)" fill-opacity="1" d="M0,128L80,133.3C160,139,320,149,480,144C640,139,800,117,960,122.7C1120,128,1280,160,1360,176L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
@@ -31,13 +31,13 @@
     <section class="what-we-do-section" aria-label="Nuestras labores">
       <div class="content-inner sticky-layout">
         
-        <!-- Columna Izquierda (Sticky) -->
+        <!-- Columna Izquierda -->
         <div class="sticky-sidebar reveal delay-1">
           <h2 class="sec-title large-title">Nuestra Labor<br>en Terreno</h2>
           <p class="sec-desc large-desc">A través de un enfoque integral, no solo entregamos apoyo material, sino que construimos una red de contención humana y profesional para las familias de nuestra comuna.</p>
         </div>
 
-        <!-- Columna Derecha (Scroll de Fotografías y Textos) -->
+        <!-- Columna Derecha -->
         <div class="scrolling-gallery">
           
           <article class="gallery-item reveal delay-2">
@@ -87,7 +87,6 @@
           </div>
         </div>
 
-        <!-- Cierre de Historia MUCHÍSIMO MÁS GRANDE -->
         <div class="history-action reveal delay-2">
           <h2 class="history-action-title">El trabajo nunca se detiene.<br>Descubre lo que estamos haciendo hoy.</h2>
           
@@ -98,7 +97,7 @@
       </div>
     </section>
 
-    <!-- ================= SECCIÓN CALL TO ACTION (Clímax) ================= -->
+    <!-- ================= SECCIÓN FINAL ================= -->
     <div class="climax-wrapper reveal">
       <section class="cta-section">
         <div class="cta-card">
@@ -148,16 +147,15 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* ================= ESTRUCTURA GENERAL ================= */
 .qs-page {
-  padding-bottom: 0; /* Quitamos el padding global porque el Climax final cubre todo */
+  padding-bottom: 0;
 }
 
 .sec-tag { font-size: calc(0.85rem * var(--font-modifier)); letter-spacing: 3px; text-transform: uppercase; color: var(--secondary-color); font-weight: 700; margin-bottom: 1rem; }
 .sec-title { font-size: calc(2.8rem * var(--font-modifier)); font-weight: 800; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.15; letter-spacing: -1px; }
 .sec-desc { color: var(--text-muted); font-size: calc(1.15rem * var(--font-modifier)); line-height: 1.8; }
 
-/* ================= PORTADA (Hero c/ Logo Gigante y Ola) ================= */
+/* ================= PORTADA ================= */
 .qs-hero {
   position: relative;
   min-height: 75vh;
@@ -198,7 +196,6 @@ onUnmounted(() => {
   line-height: 1.7;
 }
 
-/* El Logo Gigante Flotante */
 .qs-hero-logo {
   flex: 0 0 35%;
   display: flex;
@@ -216,7 +213,6 @@ onUnmounted(() => {
   100% { transform: translateY(-20px) scale(1.03); }
 }
 
-/* La Ola Separadora */
 .qs-hero-wave {
   position: absolute;
   bottom: -5px; 
@@ -231,24 +227,22 @@ onUnmounted(() => {
   height: 120px;
 }
 
-/* ================= QUÉ HACEMOS (Separación Visual) ================= */
+/* ================= QUÉ HACEMOS ================= */
 .what-we-do-section {
   background-color: var(--bg-surface);
   padding: 2rem 5% 10rem; 
 }
 
 .sticky-layout {
-  max-width: 1400px; /* Agrandado para permitir mayor respiración */
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1.5fr; 
-  gap: 10rem; /* MÁS SEPARACIÓN: 10rem en vez de 6rem */
+  grid-template-columns: 1fr 1.5fr;
+  gap: 10rem;
   align-items: start;
 }
 
 .sticky-sidebar { position: sticky; top: 130px; }
-
-/* Textos agrandados */
 .large-title { font-size: calc(3.6rem * var(--font-modifier)); line-height: 1.1; margin-bottom: 2rem; }
 .large-desc { font-size: calc(1.3rem * var(--font-modifier)); line-height: 1.7; }
 
@@ -267,10 +261,9 @@ onUnmounted(() => {
 .gallery-text h3 { font-size: calc(1.8rem * var(--font-modifier)); color: var(--text-main); margin-bottom: 1rem; }
 .gallery-text p { font-size: calc(1.15rem * var(--font-modifier)); color: var(--text-muted); line-height: 1.7; }
 
-/* ================= HISTORIA / TIMELINE (Fondo animado) ================= */
+/* ================= HISTORIA / TIMELINE ================= */
 .history-section {
   padding: 8rem 5%;
-  /* FONDO ANIMADO SUTIL: Alterna entre blanco y lila extrasuave */
   background: linear-gradient(-45deg, #ffffff, #f7f5fb, #ffffff, #f0ebf8);
   background-size: 400% 400%;
   animation: gradient-shift 15s ease infinite;
@@ -293,7 +286,6 @@ onUnmounted(() => {
 .timeline-title { font-size: calc(1.6rem * var(--font-modifier)); color: var(--text-main); margin-bottom: 0.8rem; font-weight: 700; }
 .timeline-desc { font-size: calc(1.15rem * var(--font-modifier)); color: var(--text-muted); line-height: 1.7; }
 
-/* Cierre de Línea de Tiempo Imponente */
 .history-action {
   text-align: center;
   margin-top: 6rem;
@@ -309,14 +301,13 @@ onUnmounted(() => {
   letter-spacing: -1px;
 }
 
-/* Botón de Redirección Claro */
 .btn-jumbo {
   font-size: calc(1.3rem * var(--font-modifier)) !important;
   padding: 1.2rem 3.5rem !important;
   border-radius: 50px;
 }
 .cta-news-btn {
-  background-color: var(--secondary-color); /* Azul distintivo */
+  background-color: var(--secondary-color);
   color: white;
   border: none;
   display: inline-flex;
@@ -331,10 +322,10 @@ onUnmounted(() => {
   box-shadow: 0 10px 25px rgba(50, 115, 181, 0.3);
 }
 .cta-news-btn:hover .arrow {
-  transform: translateX(10px); /* Efecto de "ir hacia allá" */
+  transform: translateX(10px);
 }
 
-/* ================= CLÍMAX FINAL (Textura y Animación) ================= */
+/* ================= FINAL ================= */
 .climax-wrapper {
   position: relative;
   background-color: #1e212e; /* Muy oscuro para enlazar con footer */
@@ -343,7 +334,6 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-/* Textura: Malla de Puntos Oscuros */
 .climax-wrapper::before {
   content: "";
   position: absolute;
@@ -353,7 +343,6 @@ onUnmounted(() => {
   z-index: -1;
 }
 
-/* Animación: Orbe de luz pulsante */
 .climax-wrapper::after {
   content: "";
   position: absolute;
@@ -380,7 +369,6 @@ onUnmounted(() => {
   padding: 7rem 4rem;
   text-align: center;
   box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-  /* Tarjeta expansiva al bajar */
   transform: scale(0.9);
   opacity: 0.8;
   transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease;

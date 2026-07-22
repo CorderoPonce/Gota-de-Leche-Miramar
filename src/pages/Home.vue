@@ -1,41 +1,10 @@
 <template>
   <main id="main-content" class="body-content" tabindex="-1">
-    
-    <!-- ================= SLIDER DESTACADOS ================= -->
-    <!--<section class="slider-placeholder" @mouseenter="pauseAutoPlay" @mouseleave="startAutoPlay" aria-label="Noticias destacadas">
-      <button class="slider-arrow prev" @click="prevSlide" aria-label="Ver destacado anterior">❮</button>
-
-      <transition name="fade" mode="out-in">
-        <div class="slide-content" :key="currentSlide">
-          <h2>{{ slides[currentSlide].title }}</h2>
-          <p>{{ slides[currentSlide].description }}</p>
-          <a :href="slides[currentSlide].link" class="btn btn-donar">{{ slides[currentSlide].buttonText }}</a>
-        </div>
-      </transition>
-
-      <button class="slider-arrow next" @click="nextSlide" aria-label="Ver destacado siguiente">❯</button>
-
-      <div class="slide-controls" role="tablist" aria-label="Seleccionar diapositiva">
-        <button 
-          v-for="(slide, index) in slides" 
-          :key="index"
-          class="dot" 
-          :class="{ active: currentSlide === index }"
-          :aria-label="`Ir al destacado número ${index + 1}`"
-          :aria-selected="currentSlide === index"
-          role="tab"
-          @click="goToSlide(index)"
-        ></button>
-      </div>
-    </section> -->
-
-    <!-- ================= HERO SECTION (Sustituye al antiguo Slider) ================= -->
+    <!-- ================= HERO SECTION ================= -->
     <section class="hero">
       <div class="hero-svg-bg">
         <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
-          <!-- Franja secundaria (Se dibuja detrás) -->
           <path class="wave-fill-secondary" d="M1440 0H750C980 280 800 550 920 800H1440V0Z"/>
-          <!-- Franja principal (Blanca) -->
           <path class="wave-fill" d="M1440 0H850C1100 280 930 550 1050 800H1440V0Z"/>
         </svg>
       </div>
@@ -56,13 +25,12 @@
         </div>
 
         <div class="hero-right">
-          <!-- Asegúrate de tener esta imagen o usa un placeholder real -->
           <img src="../assets/Logo_GDLM.png" alt="Gota de Leche Ilustración" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
 
-    <!-- ================= CINTA ROTATIVA (MARQUEE HACIA LA DERECHA) ================= -->
+    <!-- ================= CINTA ROTATIVA ================= -->
     <div class="mq-wrap" aria-hidden="true">
       <div class="mq-track">
         <div class="mq-item">❋ Lactancia materna</div>
@@ -73,25 +41,12 @@
         <div class="mq-item">❋ Vínculo madre e hijo</div>
         <div class="mq-item">❋ Bienestar infantil</div>
         <div class="mq-item">❋ Salud familiar</div>
-        <!-- Duplicados para que el loop sea infinito sin cortarse -->
         <div class="mq-item">❋ Lactancia materna</div>
         <div class="mq-item">❋ Vínculo madre e hijo</div>
         <div class="mq-item">❋ Bienestar infantil</div>
         <div class="mq-item">❋ Salud familiar</div>
       </div>
     </div>
-
-    <!-- ================= BOTONES PRINCIPALES =================
-    <section class="main-action-buttons" aria-label="Enlaces de acción rápida">
-      <RouterLink to="/quienes-somos" class="action-card outline-card">
-        <h3>Conoce Quiénes Somos</h3>
-        <p>Nuestra historia, misión y equipo de trabajo.</p>
-      </RouterLink>
-      <RouterLink to="/como-ayudar" class="action-card solid-card">
-        <h3>Haz tus Donaciones</h3>
-        <p>Apoya nuestros proyectos y cambia vidas hoy.</p>
-      </RouterLink>
-    </section>  -->
 
     <section class="purpose-section reveal" aria-label="Nuestro propósito y servicios">
       <div class="content-inner">
@@ -148,7 +103,7 @@
       </div>
     </section>
 
-    <!-- ================= PANEL DE IMPACTO (CON CONTADORES ANIMADOS) ================= -->
+    <!-- ================= PANEL DE IMPACTO ================= -->
     <section class="impact-section reveal" aria-label="Logros e impacto de la organización">
       <div class="impact-container">
         <h2 class="section-title-impact">Con tu ayuda hemos logrado</h2>
@@ -178,7 +133,7 @@
       </div>
     </section>
 
-    <!-- ================= NUEVA SECCIÓN: HISTORIAS QUE INSPIRAN ================= -->
+    <!-- ================= HISTORIAS QUE INSPIRAN ================= -->
     <section class="stories-section reveal" aria-label="Historias de la comunidad">
       <div class="rotating-badge" aria-hidden="true">
             <svg viewBox="0 0 100 100">
@@ -195,14 +150,13 @@
             </svg>
           </div>
 
-      <!-- Agregamos "reveal" al header -->
       <div class="stories-header reveal">
         <h2 class="section-title">Historias que Inspiran</h2>
         <p class="section-subtitle">Detrás de cada número, hay una vida transformada gracias al esfuerzo conjunto.</p>
       </div>
 
       <div class="stories-grid">
-        <!-- Tarjeta de Historia 1 con delay 1 -->
+        <!-- Tarjeta de Historia 1 -->
         <article class="story-card reveal delay-1" tabindex="0" @click="$router.push('/historias/1')" @keyup.enter="$router.push('/historias/1')">
           <div class="story-image-wrapper">
             <img src="../assets/H1.png" class="story-image-placeholder" loading="lazy" decoding="async">
@@ -217,7 +171,7 @@
           </div>
         </article>
 
-        <!-- Tarjeta de Historia 2 con delay 2 -->
+        <!-- Tarjeta de Historia 2 -->
         <article class="story-card reveal delay-2" tabindex="0" @click="$router.push('/historias/2')" @keyup.enter="$router.push('/historias/2')">
           <div class="story-image-wrapper">
             <img src="../assets/H2.png" class="story-image-placeholder" loading="lazy" decoding="async">
@@ -233,45 +187,43 @@
         </article>
       </div>
 
-      <!-- Botón con delay 3 -->
       <div class="more-stories-container reveal delay-3">
         <RouterLink to="/historias" class="btn btn-outline-primary">Leer más historias</RouterLink>
       </div>
     </section>
 
-    <!-- ================= CONSOLIDADO DE NOTICIAS ================= -->
+    <!-- ================= NOTICIAS ================= -->
     <section class="news-consolidated" aria-label="Últimas noticias publicadas">
-      <!-- Título con reveal -->
       <h2 class="section-title reveal">Últimas Noticias</h2>
-      
-      <!-- Contenedor del slider con reveal y delay -->
       <div class="news-slider-container reveal delay-1">
         <button class="nav-arrow left-arrow" @click="scrollNews('left')" aria-label="Desplazar noticias hacia la izquierda">❮</button>
         
-        <div class="news-slider-wrapper" ref="newsContainer">
+        <div class="news-slider-wrapper">
           <div class="news-grid">
-            <article 
-              v-for="news in newsItems" 
-              :key="news.id" 
+            
+            <!-- últimas noticias -->
+            <RouterLink 
+              v-for="noticia in ultimasNoticias" 
+              :key="noticia.id" 
+              :to="`/noticias/${noticia.slug}`"
               class="news-item"
-              tabindex="0"
-              :aria-label="`Noticia: ${news.title}. Presione Enter para leer.`"
-              @click="$router.push('/noticias')"
-              @keyup.enter="$router.push('/noticias')"
             >
-              <img :src="news.img" :alt="`Miniatura de la noticia: ${news.title}`" class="news-image" />
-              <div class="news-info">
-                <h4 class="news-title">{{ news.title }}</h4>
-                <p>{{ news.desc }}</p>
+              <div class="img-placeholder">
+                <img :src="noticia.image" :alt="noticia.title" loading="lazy" decoding="async">
               </div>
-            </article>
+              
+              <div class="news-info">
+                <h4>{{ noticia.title }}</h4>
+                <p>{{ noticia.excerpt }}</p> 
+              </div>
+            </RouterLink>
+
           </div>
         </div>
 
         <button class="nav-arrow right-arrow" @click="scrollNews('right')" aria-label="Desplazar noticias hacia la derecha">❯</button>
       </div>
 
-      <!-- Botón final con reveal -->
       <div class="more-news-container reveal delay-2">
         <RouterLink to="/noticias" class="btn btn-contacto">Ver todas las noticias</RouterLink>
       </div>
@@ -280,12 +232,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import imgN1 from '../assets/N1.png'
-import imgN2 from '../assets/N2.png'
-import imgN3 from '../assets/N3.png'
-import imgN4 from '../assets/N4.png'
-import imgN5 from '../assets/N5.png'
+  import { noticiasData } from './Noticias/noticias.js'
+  import { ref, onMounted, onUnmounted } from 'vue'
+  import imgN1 from '../assets/N1.png'
+  import imgN2 from '../assets/N2.png'
+  import imgN3 from '../assets/N3.png'
+  import imgN4 from '../assets/N4.png'
+  import imgN5 from '../assets/N5.png'
+
+  const ultimasNoticias = noticiasData.slice(0, 4)
 
   //================= ANIMACIÓN DE NÚMEROS (STATS) =================-->
   const statNinos = ref(0)
@@ -299,9 +254,9 @@ import imgN5 from '../assets/N5.png'
     const stepTime = Math.abs(Math.floor(duration / max))
     
     const timer = setInterval(() => {
-      start += Math.ceil(max / 50) // Sube de a saltos para los miles
+      start += Math.ceil(max / 50)
       if (start >= max) {
-        targetRef.value = max.toLocaleString('es-CL') // Pone el punto de miles (Ej: 1.500)
+        targetRef.value = max.toLocaleString('es-CL')
         clearInterval(timer)
       } else {
         targetRef.value = start.toLocaleString('es-CL')
@@ -312,31 +267,9 @@ import imgN5 from '../assets/N5.png'
   let observer = null
   let revealObserver = null
 
-// Slider Destacados
-const currentSlide = ref(0)
-let autoPlayInterval = null
-
-const slides = ref([
-  { title: 'Campaña de Invierno 2026', description: 'Descubre cómo estamos ayudando a las comunidades.', buttonText: 'Leer noticia destacada', link: '#' },
-  { title: 'Apoyo Escolar en Valparaíso', description: 'Alianza estratégica para identificar casos.', buttonText: 'Ver galería', link: '#' },
-  { title: 'Súmate como Voluntario', description: 'Buscamos personas motivadas para nuestros operativos en terreno.', buttonText: 'Postula aquí', link: '#' }
-])
-
-const nextSlide = () => { currentSlide.value = (currentSlide.value + 1) % slides.value.length }
-const prevSlide = () => { currentSlide.value = (currentSlide.value - 1 + slides.value.length) % slides.value.length }
-const goToSlide = (index) => { currentSlide.value = index }
-const startAutoPlay = () => { autoPlayInterval = setInterval(nextSlide, 5000) }
-const pauseAutoPlay = () => { clearInterval(autoPlayInterval) }
 
 // Noticias y Desplazamiento
 const newsContainer = ref(null)
-const newsItems = ref([
-  { id: 1, title: 'Jornada de voluntariado', desc: 'Más de 40 asistentes este fin de semana...', img: imgN1 },
-  { id: 2, title: 'Alianza educativa', desc: 'Firmamos un nuevo convenio para potenciar el desarrollo...', img: imgN2 },
-  { id: 3, title: 'Balance anual 2025', desc: 'Revisa los hitos más importantes del año pasado...', img: imgN3 },
-  { id: 4, title: 'Talleres comunitarios', desc: 'Vecinos participan activamente en programas de alimentación...', img: imgN4 },
-  { id: 5, title: 'Entrega de suministros Cerro Barón', desc: 'Logramos abastecer a tres centros comunitarios periféricos...', img: imgN5 }
-])
 
 const scrollNews = (direction) => {
   if (newsContainer.value) {
@@ -365,12 +298,10 @@ onMounted(() => {
   const statsContainer = document.getElementById('stats-container')
   if (statsContainer) observer.observe(statsContainer)
 
-  // <-- 2. NUEVA LÓGICA REVEAL -->
     revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active')
-          // Dejamos de observarlo para que la animación solo ocurra una vez
           revealObserver.unobserve(entry.target)
         }
       })
@@ -388,7 +319,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* ================= DISEÑO ESPECÍFICO DE LA INTERFAZ DE INICIO ================= */
 .body-content {
   flex: 1;
   padding: 0;
@@ -399,13 +329,13 @@ onUnmounted(() => {
   position: absolute;
   top: 0; left: 0; 
   width: 100%; height: 100%;
-  z-index: 0; /* Detrás del texto pero delante del fondo base */
+  z-index: 0;
   overflow: hidden;
-  pointer-events: none; /* Evita que estorben al hacer clic */
+  pointer-events: none; 
 }
 .blob {
   position: absolute;
-  filter: blur(70px); /* El desenfoque que crea el efecto "nube" */
+  filter: blur(70px);
   border-radius: 50%;
   opacity: 0.35;
   animation: float-blob 10s ease-in-out infinite alternate;
@@ -423,23 +353,22 @@ onUnmounted(() => {
   100% { transform: translate(40px, 50px) scale(1.1); }
 }
 
-/* --- Idea 2: Sello Circular Rotativo --- */
+/* --- Sello Circular Rotativo --- */
 .rotating-badge {
   position: absolute;
-  top: 0px;   /* Se eleva un poquito por encima del título "Historias que inspiran" */
-  right: 5%;    /* Se pega al margen derecho, respetando la simetría de la página */
-  z-index: 10;   
-  width: 140px; 
+  top: 0px;
+  right: 5%;
+  z-index: 10;
+  width: 140px;
   height: 140px;
   border-radius: 50%;
   background-color: var(--primary-color);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2); 
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Ahora SOLO el SVG interior gira, eliminando el bamboleo de la sombra */
 .rotating-badge svg {
   width: 100%;
   height: 100%;
@@ -449,8 +378,8 @@ onUnmounted(() => {
 }
 
 .badge-bg {
-  fill: transparent; /* El fondo lo da el contenedor, no el SVG */
-  stroke: var(--bg-surface); /* Una sutil línea blanca interna */
+  fill: transparent;
+  stroke: var(--bg-surface);
   stroke-width: 1;
   opacity: 0.3;
 }
@@ -463,7 +392,7 @@ onUnmounted(() => {
 
 .badge-icon {
   font-size: 26px;
-  fill: var(--secondary-color); /* Corazón azul/celeste */
+  fill: var(--secondary-color);
 }
 
 @keyframes spin-badge {
@@ -471,19 +400,7 @@ onUnmounted(() => {
   100% { transform: rotate(360deg); }
 }
 
-/* Slider Principal */
-.slider-placeholder { background: linear-gradient(135deg, #2c3e50, #3498db); border-radius: 12px; padding: 6rem 4rem; text-align: center; margin-bottom: 4rem; position: relative; overflow: hidden; min-height: 400px; display: flex; align-items: center; justify-content: center; }
-.slide-content h2 { font-size: calc(3rem * var(--font-modifier)); margin-bottom: 1.5rem; color: #ffffff; line-height: 1.2; }
-.slide-content p { font-size: calc(1.4rem * var(--font-modifier)); margin-bottom: 2.5rem; color: #ffffff; line-height: 1.4; }
-.slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.2); color: white; border: none; font-size: 2rem; padding: 1rem; cursor: pointer; border-radius: 50%; z-index: 10; opacity: 0; transition: all 0.3s; }
-.slider-arrow:focus, .slider-placeholder:hover .slider-arrow { opacity: 1; }
-.slider-arrow.prev { left: 20px; }
-.slider-arrow.next { right: 20px; }
-.slide-controls { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.8rem; z-index: 10; }
-.dot { width: 12px; height: 12px; background-color: rgba(255,255,255,0.4); border: none; border-radius: 50%; cursor: pointer; }
-.dot.active { background-color: white; transform: scale(1.3); }
-
-/* ================= HERO SECTION (NUEVA PORTADA) ================= */
+/* ================= HERO SECTION ================= */
 .hero {
   position: relative;
   min-height: calc(100vh - 80px);
@@ -529,20 +446,19 @@ onUnmounted(() => {
 .hero-right img { width: 100%; max-width: 520px; height: auto;}
 
 
-/* ================= MARQUEE CINTA ROTATIVA (Hacia la Derecha) ================= */
+/* ================= CINTA ROTATIVA ================= */
 .mq-wrap {
-  overflow: hidden; padding: 1.5rem 0; background: var(--bg-surface); 
+  overflow: hidden; padding: 1.5rem 0; background: var(--bg-surface);
   border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
   margin-bottom: 5rem;
 }
-.mq-track { 
-  display: flex; gap: 3rem; 
-  width: 200%; /* El ancho extra previene que el loop se vea vacío */
-  /* La animación va de izquierda (-50%) a derecha (0%) */
-  animation: marquee-right 35s linear infinite; 
+.mq-track {
+  display: flex; gap: 3rem;
+  width: 200%;
+  animation: marquee-right 35s linear infinite;
 }
-.mq-item { 
-  display: flex; align-items: center; gap: 1rem; font-size: calc(0.9rem * var(--font-modifier)); 
+.mq-item {
+  display: flex; align-items: center; gap: 1rem; font-size: calc(0.9rem * var(--font-modifier));
   letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); font-weight: 600; white-space: nowrap;
 }
 
@@ -551,123 +467,114 @@ onUnmounted(() => {
   100% { transform: translateX(0); }
 }
 
-
-/* Distribución de Tarjetas Primarias
-.main-action-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 5rem; }
-.action-card { padding: 4rem 2rem; text-decoration: none; border-radius: 12px; text-align: center; transition: all 0.3s; }
-.action-card h3 { margin-bottom: 1rem; font-size: calc(1.8rem * var(--font-modifier)); line-height: 1.2; }
-.action-card p { font-size: calc(1.1rem * var(--font-modifier)); line-height: 1.4; } */
-
-/* ================= SECCIÓN: NUESTRO PROPÓSITO (Sticky + Bento) ================= */
-.purpose-section { 
-  padding: 4rem 5%; /* Mayor padding superior e inferior */
-  background: transparent; 
-  margin-bottom: 7rem; /* Mayor respiro antes de la siguiente sección */
+/* ================= SECCIÓN: NUESTRO PROPÓSITO ================= */
+.purpose-section {
+  padding: 4rem 5%;
+  background: transparent;
+  margin-bottom: 7rem;
 }
 
 .content-inner { 
-  max-width: 1350px; /* Aumentamos 100px para que ocupe más ancho de pantalla */
-  margin: 0 auto; 
-  display: grid; 
-  grid-template-columns: 1fr 2.5fr; 
-  gap: 6rem; /* Mayor separación entre el texto y las tarjetas */
-  align-items: start; 
+  max-width: 1350px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: 6rem;
+  align-items: start;
 }
 
-.about-sidebar { 
-  position: sticky; 
-  top: 130px; 
+.about-sidebar {
+  position: sticky;
+  top: 130px;
 }
 
 .sec-tag { 
-  font-size: calc(0.85rem * var(--font-modifier)); /* Más grande */
-  letter-spacing: 3px; 
-  text-transform: uppercase; 
-  color: var(--secondary-color); 
-  font-weight: 700; 
-  margin-bottom: 1rem; 
+  font-size: calc(0.85rem * var(--font-modifier));
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .sec-title { 
-  font-size: calc(2.8rem * var(--font-modifier)); /* Título mucho más imponente */
-  font-weight: 800; 
-  color: var(--text-main); 
-  margin-bottom: 1.8rem; 
-  line-height: 1.3; 
+  font-size: calc(2.8rem * var(--font-modifier));
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 1.8rem;
+  line-height: 1.3;
   letter-spacing: -2.5px;
 }
 
-.sec-desc { 
-  color: var(--text-muted); 
-  font-size: calc(1.15rem * var(--font-modifier)); /* Párrafos más legibles */
-  line-height: 1.8; 
+.sec-desc {
+  color: var(--text-muted);
+  font-size: calc(1.15rem * var(--font-modifier));
+  line-height: 1.8;
 }
 
 .sec-desc p { 
   margin-bottom: 1.2rem; 
 }
 
-/* Grilla de Tarjetas más grandes */
 .srv-grid { 
-  display: grid; 
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 2rem; /* Mayor espacio entre tarjetas */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
 
 .bento-card {
-  background: var(--bg-surface); 
+  background: var(--bg-surface);
   border: 1px solid var(--border-color);
-  border-radius: 28px; /* Bordes un poco más suaves */
-  padding: 3.5rem 3rem; /* Tarjetas mucho más espaciosas (Bigger padding) */
-  text-align: left; 
+  border-radius: 28px;
+  padding: 3.5rem 3rem;
+  text-align: left;
   cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, background 0.6s ease;
   box-shadow: 0 8px 30px rgba(0,0,0,0.04);
 }
 
-.card-wide { 
-  grid-column: span 2; 
-  display: flex; 
-  align-items: center; 
-  gap: 3rem; 
+.card-wide {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
 }
 
-.bento-card:hover, .bento-card:focus { 
-  transform: scale(1.02); 
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
+.bento-card:hover, .bento-card:focus {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
   outline: 2px solid var(--secondary-color);
 }
 
 .srv-icon {
   width: 75px; height: 75px;
-  border-radius: 20px; 
+  border-radius: 20px;
   flex-shrink: 0;
-  background: rgba(50, 115, 181, 0.1); 
+  background: rgba(50, 115, 181, 0.1);
   color: var(--secondary-color);
   display: flex; align-items: center; justify-content: center;
   font-size: 2rem;
-  margin-bottom: 1.5rem; 
+  margin-bottom: 1.5rem;
   transition: background 0.6s ease, color 0.6s ease;
 }
 
-.card-wide .srv-icon { 
-  margin-bottom: 0; 
+.card-wide .srv-icon {
+  margin-bottom: 0;
 }
 
-.bento-card h3 { 
-  font-size: calc(1.3rem * var(--font-modifier)); /* Títulos de tarjeta aumentados */
-  font-weight: 700; 
-  color: var(--text-main); 
-  margin-bottom: 0.8rem; 
+.bento-card h3 {
+  font-size: calc(1.3rem * var(--font-modifier));
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.8rem;
 }
 
-.bento-card p { 
-  font-size: calc(1.05rem * var(--font-modifier)); /* Textos de tarjeta aumentados */
-  color: var(--text-muted); 
-  line-height: 1.7; 
+.bento-card p {
+  font-size: calc(1.05rem * var(--font-modifier));
+  color: var(--text-muted);
+  line-height: 1.7;
 }
 
-/* Compatibilidad Alto Contraste para las nuevas tarjetas */
 .high-contrast .bento-card { background: #000000; border: 2px solid #ffffff; }
 .high-contrast .sec-tag { color: #ffff00; }
 .high-contrast .srv-icon { background: #000000; color: #ffff00; border: 1px solid #ffff00; }
@@ -690,7 +597,7 @@ onUnmounted(() => {
 .btn-impacto { background-color: var(--btn-impacto-bg); color: var(--btn-impacto-text); font-weight: bold; border: 2px solid var(--btn-impacto-bg); }
 .btn-impacto:hover, .btn-impacto:focus { background-color: transparent; color: #ffffff; }
 
-/* ================= NUEVO: HISTORIAS QUE INSPIRAN ================= */
+/* ================= HISTORIAS QUE INSPIRAN ================= */
 .stories-section {
   padding: 2rem 5%;
   margin-bottom: 5rem;
@@ -717,7 +624,6 @@ onUnmounted(() => {
   margin-bottom: 3rem;
 }
 
-/* Tarjeta de Historia (Modern & Sentimental) */
 .story-card {
   display: flex;
   flex-direction: column;
@@ -736,11 +642,10 @@ onUnmounted(() => {
   outline: 2px solid var(--primary-color);
 }
 
-/* Imagen de cabecera con proporción amigable */
 .story-image-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 60%; /* Relación de aspecto 16:9 aprox */
+  padding-top: 60%;
   background-color: var(--border-color);
 }
 
@@ -756,11 +661,9 @@ onUnmounted(() => {
   color: var(--text-muted);
   font-weight: 500;
   font-size: calc(1.1rem * var(--font-modifier));
-  /* Un pequeño gradiente simulando una foto en blanco y negro cálida o un tono sepia */
   background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%); 
 }
 
-/* Contenido de la Historia */
 .story-content {
   padding: 2.5rem;
   position: relative;
@@ -769,7 +672,6 @@ onUnmounted(() => {
   flex: 1;
 }
 
-/* El elemento decorativo sentimental: Las comillas gigantes */
 .quote-icon {
   position: absolute;
   top: -20px;
@@ -777,20 +679,19 @@ onUnmounted(() => {
   font-size: 5rem;
   line-height: 1;
   color: var(--primary-color);
-  opacity: 0.2; /* Suave marca de agua */
-  font-family: Georgia, serif; /* Tipografía clásica para acentuar el tono narrativo */
+  opacity: 0.2;
+  font-family: Georgia, serif;
 }
 
 .story-quote {
   font-size: calc(1.15rem * var(--font-modifier));
   color: var(--text-main);
   line-height: 1.7;
-  font-style: italic; /* La cursiva transmite relato en primera persona */
+  font-style: italic;
   margin-bottom: 2rem;
-  flex: 1; /* Empuja el autor hacia abajo */
+  flex: 1;
 }
 
-/* Datos del autor o beneficiario */
 .story-author {
   margin-top: auto;
   border-top: 1px solid var(--border-color);
@@ -799,7 +700,7 @@ onUnmounted(() => {
 
 .story-author h4 {
   margin: 0 0 0.3rem 0;
-  color: var(--secondary-color); /* Resalta el nombre de la persona */
+  color: var(--secondary-color);
   font-size: calc(1.1rem * var(--font-modifier));
 }
 
@@ -813,14 +714,13 @@ onUnmounted(() => {
   text-align: center;
 }
 
-/* Botón sutil para leer más historias */
 .btn-outline-primary {
   display: inline-block;
   padding: 0.8rem 2rem;
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
   background: transparent;
-  border-radius: 30px; /* Bordes redondeados para un aspecto más amigable */
+  border-radius: 30px;
   font-weight: 600;
   font-size: calc(1rem * var(--font-modifier));
   text-decoration: none;
@@ -832,51 +732,41 @@ onUnmounted(() => {
   color: white;
 }
 
-/* Compatibilidad Alto Contraste para la nueva sección 
-.high-contrast .story-card { border: 2px solid #ffffff; background: #000000; }
-.high-contrast .story-image-placeholder { background: #000000; border-bottom: 2px solid #ffffff; color: #ffffff; }
-.high-contrast .quote-icon { color: #ffff00; opacity: 1; }
-.high-contrast .story-quote { color: #ffffff; }
-.high-contrast .story-author h4 { color: #ffff00; }
-.high-contrast .author-location { color: #ffffff; }
-.high-contrast .btn-outline-primary { border-color: #ffffff; color: #ffffff; }
-.high-contrast .btn-outline-primary:hover { background: #ffffff; color: #000000; } /*
-
-/* ================= GRADAS DE NOTICIAS ================= */
+/* ================= NOTICIAS ================= */
 .news-consolidated { margin-bottom: 5rem; }
 .section-title-impact { color: #fff; margin-bottom: 2.5rem; font-size: calc(2.2rem * var(--font-modifier)); text-align: center; }
 .section-title { color: var(--text-main); margin-bottom: 2.5rem; font-size: calc(2.2rem * var(--font-modifier)); text-align: center; }
-.news-slider-container { position: relative; display: flex; align-items: center; padding: 0 40px; }
+.news-slider-container { position: relative; display: flex; align-items: center; padding: 0 110px; }
 .news-slider-wrapper { overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; width: 100%; padding: 1rem 0; scrollbar-width: none; }
 .news-slider-wrapper::-webkit-scrollbar { display: none; }
 .news-grid { display: flex; gap: 2.5rem; }
-.news-item { flex: 0 0 calc(33.333% - 1.666rem); scroll-snap-align: start; cursor: pointer; transition: all 0.3s ease; }
-.news-image { width: 100%; height: 300px; font-size: calc(1.2rem * var(--font-modifier)); }
+.news-item { flex: 0 0 calc(33.333% - 1.666rem); scroll-snap-align: start; cursor: pointer; transition: all 0.3s ease; text-decoration: none; color: inherit;}
+.img-placeholder { height: 220px; position: relative; overflow: hidden; border-radius: 12px 12px 0 0; }
+.img-placeholder img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
 .news-info { padding: 2rem; }
 .news-info h4 { margin: 0 0 1rem 0; font-size: calc(1.3rem * var(--font-modifier)); line-height: 1.2; }
 .news-info p { line-height: 1.6; font-size: calc(1rem * var(--font-modifier)); }
 .nav-arrow { background: var(--bg-surface); border: 1px solid var(--border-color); box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: var(--text-main); font-size: 1.8rem; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 20; }
 .nav-arrow:hover, .nav-arrow:focus { background-color: var(--secondary-color); color: white; border-color: var(--secondary-color); transform: translateY(-50%) scale(1.1);box-shadow: 0 6px 18px rgba(52, 152, 219, 0.4);}
-.left-arrow { left: 0px; } 
-.right-arrow { right: 0px; }
+.left-arrow { left: 55px; } 
+.right-arrow { right: 55px; }
 .more-news-container { text-align: center; margin-top: 3rem; }
-
+.news-item:hover .img-placeholder img { transform: scale(1.05); }
 .fade-enter-active, .fade-leave-active { transition: opacity 0.5s ease; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
 
-/* ================= ANIMACIÓN REVEAL (FADE-UP) ================= */
+/* ================= ANIMACIÓN REVEAL ================= */
 .reveal { 
   opacity: 0; 
-  transform: translateY(40px); /* Empieza 40px más abajo */
-  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Misma curva suave del prototipo */
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .reveal.active { 
   opacity: 1; 
-  transform: translateY(0); /* Sube a su posición original */
+  transform: translateY(0);
 }
 
-/* Retardos para crear el efecto "cascada" al bajar */
 .delay-1 { transition-delay: 0.5s; }
 .delay-2 { transition-delay: 0.6s; }
 .delay-3 { transition-delay: 0.7s; }
