@@ -166,7 +166,8 @@ onUnmounted(() => {
 }
 
 .qs-hero-container {
-  max-width: 1300px;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   align-items: center;

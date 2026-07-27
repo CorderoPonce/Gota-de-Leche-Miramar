@@ -95,13 +95,13 @@ onUnmounted(() => {
     font-size: calc(0.85rem * var(--font-modifier)); 
     letter-spacing: 3px; text-transform: uppercase; 
     color: var(--secondary-color); font-weight: 700; 
-    margin-bottom: 1.5rem; 
+    margin-bottom: 1.6rem; 
 }
 
 /* ================= PORTADA ================= */
 .news-hero {
   margin-top: -50px;
-  padding: calc(5rem + 50px) 5% 4rem;
+  padding: calc(4rem + 50px) 5% 4rem;
   text-align: center;
   background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border-color);

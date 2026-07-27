@@ -82,6 +82,7 @@
       </nav>
       
       <div class="header-actions">
+        <!---
         <div class="search-box" :class="{ 'search-open': isSearchOpen }" role="search">
           <input 
             ref="searchInput"
@@ -106,11 +107,12 @@
               >
               <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
               <path d="M21 21l-6 -6" />
-            </svg></button>
+            </svg>
+          </button>
         </div>
-
+        -->
         <RouterLink to="/como-ayudar" class="btn btn-donar">Contribuir / Donar</RouterLink>
-        <RouterLink to="/contacto" class="btn btn-contacto">Contacto</RouterLink>
+        <RouterLink to="/como-ayudar#contacto" class="btn btn-contacto">Contacto</RouterLink>
       </div>
     </header>
 
@@ -292,7 +294,7 @@ onUnmounted(() => {
 .fade-preload-leave-active { transition: opacity 0.8s ease; }
 .fade-preload-leave-to { opacity: 0; }
 
-/* ================= WIDGET FLOTANTE DE ACCESIBILIDAD ================= */
+/* ================= WIDGET ACCESIBILIDAD ================= */
 .accessibility-widget { position: fixed; bottom: 25px; right: 25px; z-index: 2000; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
 .widget-trigger { width: 55px; height: 55px; border-radius: 50%; background-color: #1a202c; border: 2px solid #4a5568; color: white; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
 .widget-icon { font-size: 1.8rem; }

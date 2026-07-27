@@ -94,7 +94,7 @@ onUnmounted(() => {
 .article-page {
   background-color: var(--bg-main);
   min-height: 100vh;
-  padding-bottom: 6rem;
+  padding-bottom: 3rem;
 }
 
 /* ================= PORTADA ================= */

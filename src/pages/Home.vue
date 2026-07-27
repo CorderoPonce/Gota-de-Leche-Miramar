@@ -135,8 +135,10 @@
 
     <!-- ================= HISTORIAS QUE INSPIRAN ================= -->
     <section class="stories-section reveal" aria-label="Historias de la comunidad">
+      
       <div class="rotating-badge" aria-hidden="true">
             <svg viewBox="0 0 100 100">
+              <!-- ... tu SVG de la medalla se queda exactamente igual ... -->
               <defs>
                 <path id="circlePath" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
               </defs>
@@ -156,40 +158,37 @@
       </div>
 
       <div class="stories-grid">
-        <!-- Tarjeta de Historia 1 -->
-        <article class="story-card reveal delay-1" tabindex="0" @click="$router.push('/historias/1')" @keyup.enter="$router.push('/historias/1')">
+        <!-- Iteramos automáticamente sobre las últimas historias -->
+        <RouterLink 
+          v-for="(historia, index) in ultimasHistorias" 
+          :key="historia.id"
+          :to="`/historias/${historia.slug}`"
+          class="story-card reveal" 
+          :class="`delay-${index + 1}`"
+        >
           <div class="story-image-wrapper">
-            <img src="../assets/H1.png" class="story-image-placeholder" loading="lazy" decoding="async">
+            <!-- Cargamos la imagen dinámica -->
+            <img :src="historia.image" :alt="`Fotografía de ${historia.name}`" class="story-image-placeholder" loading="lazy" decoding="async">
           </div>
+          
           <div class="story-content">
             <span class="quote-icon">“</span>
-            <p class="story-quote">Frase Historia 1.</p>
+            <!-- Cargamos la cita dinámica -->
+            <p class="story-quote">{{ historia.quote }}</p>
+            
             <div class="story-author">
-              <h4>Protagonistas</h4>
-              <span class="author-location">Comunidad Miramar, Viña del Mar</span>
+              <!-- Cargamos el nombre y el rol -->
+              <h4>{{ historia.name }}</h4>
+              <span class="author-location">{{ historia.role }} - Comunidad Miramar</span>
             </div>
           </div>
-        </article>
-
-        <!-- Tarjeta de Historia 2 -->
-        <article class="story-card reveal delay-2" tabindex="0" @click="$router.push('/historias/2')" @keyup.enter="$router.push('/historias/2')">
-          <div class="story-image-wrapper">
-            <img src="../assets/H2.png" class="story-image-placeholder" loading="lazy" decoding="async">
-          </div>
-          <div class="story-content">
-            <span class="quote-icon">“</span>
-            <p class="story-quote">Frase Historia 2.</p>
-            <div class="story-author">
-              <h4>Protagonistas</h4>
-              <span class="author-location">Comunidad Miramar, Viña del Mar</span>
-            </div>
-          </div>
-        </article>
+        </RouterLink>
       </div>
 
       <div class="more-stories-container reveal delay-3">
         <RouterLink to="/historias" class="btn btn-outline-primary">Leer más historias</RouterLink>
       </div>
+      
     </section>
 
     <!-- ================= NOTICIAS ================= -->
@@ -233,6 +232,7 @@
 
 <script setup>
   import { noticiasData } from './Noticias/noticias.js'
+  import { historiasData } from './Historias/historias.js'
   import { ref, onMounted, onUnmounted } from 'vue'
   import imgN1 from '../assets/N1.png'
   import imgN2 from '../assets/N2.png'
@@ -240,7 +240,9 @@
   import imgN4 from '../assets/N4.png'
   import imgN5 from '../assets/N5.png'
 
+  const ultimasHistorias = historiasData.slice(0, 2)
   const ultimasNoticias = noticiasData.slice(0, 4)
+  const noticias = ref(noticiasData)
 
   //================= ANIMACIÓN DE NÚMEROS (STATS) =================-->
   const statNinos = ref(0)
@@ -634,6 +636,8 @@ onUnmounted(() => {
   border: 1px solid var(--border-color);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
 }
 
 .story-card:hover, .story-card:focus {
